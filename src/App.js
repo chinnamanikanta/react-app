@@ -1,24 +1,25 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
-import HomePage from "./components/HomePage";
-import Page1 from "./components/Page1";
-
+import CountryDashBoardApp from './components/countryList/countriesDashBoardApp.js';
+import Home from "./components/home.js";
+// import EachCountryDetails from "./components/countryList/eachCountry.js";
+import EmojiGameApp from './components/EmojiGame/EmojiGameApp.js';
 import "./App.css";
 
 const App = () => {
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <Switch>
-        <Route exact path="/page-1">
-          <Page1 />
-        </Route>
-        <Route path="/">
-          <HomePage />
-        </Route>
+<Route path="/countryList" >
+        <CountryDashBoardApp/></Route>
+<Route path="/emojiGame">
+<EmojiGameApp/>
+</Route>
+        <Route path="/" component={Home}/>
       </Switch>
     </Router>
   );
 };
+
 
 export default App;
