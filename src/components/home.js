@@ -10,11 +10,15 @@ export default function Home(){
         <Link to="/home.js">Home</Link>
         </li>
         <li>
+        <Link to="/todo-list">ToDo-List</Link>
+        </li>
+ <li>
         <Link to="/countryList">CountryList</Link>
         </li>
         <li>
-        <Link to="emojiGame">EmojiGameApp</Link>
+        <Link to="/emojiGame">EmojiGameApp</Link>
         </li>
+        
         </ul>
         </nav>
         </div>
