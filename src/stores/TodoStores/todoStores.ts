@@ -1,6 +1,6 @@
 import React from 'react';
 import {observable,computed,action,reaction} from 'mobx';
-import {observer} from 'mobx-react';
+// import {observer} from 'mobx-react';
 // import {toJS} from "mobx";
 import Todo from './todos.js'
  

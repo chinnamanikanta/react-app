@@ -1,8 +1,9 @@
 import React from 'react';
-import todoStore from '../../stores/TodoStores/todoStores.js';
-import './todos.css';
+
 import {action} from 'mobx';
-import {observer} from 'mobx-react'
+import {observer} from 'mobx-react';
+import todoStore from '../../stores/TodoStores/todoStores';
+import './todos.css';
 @observer class TodoList extends React.Component {
     @action.bound
     updateTodoTite(event){

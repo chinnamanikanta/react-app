@@ -1,9 +1,12 @@
 import React from 'react';
+import EventsApp from './EventListapp';
+
+type eventsListAppProps = {
+     addEvents:Function,
+} 
 
 
-
-
-class UserInputEvents extends React.Component {
+class UserInputEvents extends React.Component<eventsListAppProps> {
   
   state={
     userEventName:"",

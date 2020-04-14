@@ -2,23 +2,21 @@ import React from 'react';
 import {observer} from 'mobx-react';
 import {observable,action} from 'mobx';
 import tw from 'tailwind.macro';
-import styled from '@emotion/styled'
-import UserInputEvents from './UserInputEvents.js';
-import eventStore from '../../stores/EventsStore/EventStore.js'
-import EnteredEventsList from './EventsList.js';
+
+import eventStore from '../../stores/EventsStore/EventStore'
+
+import UserInputEvents from './UserInputEvents';
+import EnteredEventsList from './EventsList';
+
 
 
 @observer
 class EventsApp extends React.Component {
-    @action.bound
-    addEvents(eventName,eventLocation){
+   
+    addEvents=(eventName,eventLocation)=>{
        eventStore.onAddEvent(eventName,eventLocation); 
         
     }
-
-
-    
-    
     
     render(){
         return (

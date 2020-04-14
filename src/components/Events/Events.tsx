@@ -1,9 +1,14 @@
 import React from 'react';
 import {observable,action} from 'mobx';
 import {observer} from 'mobx-react';
-// import Event from '../../stores/EventsStore/EventModel/.js';
+import Event from '../../stores/EventsStore/EventModel';
+
+type EventsProp={
+    eachEvent:Event,
+    onDelete:Function,
+}
 @observer
-class Events extends React.Component {
+class Events extends React.Component<EventsProp> {
     @observable isEditEvent;
     @observable eventName;
     @observable eventLocation;
@@ -12,7 +17,6 @@ class Events extends React.Component {
         this.isEditEvent = false;
         this.eventLocation = this.props.eachEvent.eventName;
         this.eventName = this.props.eachEvent.eventLocation;
-        
     }
     @action.bound
     onChangeEventName(event){
@@ -50,7 +54,7 @@ class Events extends React.Component {
                 
                  <div>
                     <button type="button" onClick = {this.onEditEvent}>Edit</button>
-                    <button type="button" onClick={()=>this.props.onDelete(this.props.eachEvent.id)}>Delete</button>
+                    <button type="button" id={this.props.eachEvent.id} onClick={this.props.onDelete()}>Delete</button>
                 </div>
             }
             </div>
