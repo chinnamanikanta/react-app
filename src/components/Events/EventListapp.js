@@ -6,7 +6,7 @@ import tw from 'tailwind.macro';
 import eventStore from '../../stores/EventsStore/EventStore'
 
 import UserInputEvents from './UserInputEvents';
-import EnteredEventsList from './EventsList';
+import EnteredEventsList from './EventList';
 
 
 

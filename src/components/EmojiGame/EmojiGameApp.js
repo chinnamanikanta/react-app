@@ -8,7 +8,6 @@ import EmojiGameHeader from "./EmojiGameHeader.js";
 import EmojiResult from "./EmojiResult.js";
 const EmojiCardList = styled.div`${tw`flex flex-wrap mr-4`}
 background-color:${props=>props.selectedTheme === "Light Theme" ? "#E5FFFF" : "black"}
-
 `;
 class EmojiGameApp extends React.Component {
         

@@ -12,7 +12,7 @@ import "./App.css";
 // import TodoApp from './components/mobx-react-todoList/TodoApp';
 import EventsApp from './components/Events/EventListapp'; 
 // import A from './components/Page1/index.js';
- 
+import GridMemoryGame from './components/GridGame/GridMemoryGameApp' 
  
 const App = () => {
   return (
@@ -25,6 +25,10 @@ const App = () => {
       
 <Route path="/event-list-app">
 <EventsApp/>
+</Route>
+
+<Route path="/grid-game-app">
+<GridMemoryGame/>
 </Route>
 
 

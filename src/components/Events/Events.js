@@ -3,12 +3,8 @@ import {observable,action} from 'mobx';
 import {observer} from 'mobx-react';
 import Event from '../../stores/EventsStore/EventModel';
 
-type EventsProp={
-    eachEvent:Event,
-    onDelete:Function,
-}
 @observer
-class Events extends React.Component<EventsProp> {
+class Events extends React.Component {
     @observable isEditEvent;
     @observable eventName;
     @observable eventLocation;
