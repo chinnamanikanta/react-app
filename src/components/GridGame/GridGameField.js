@@ -8,7 +8,7 @@ import gameLevels from './data.js';
 import EachCell from './GridEachCell';
 
 
-//tailwind-css
+//tailwind-@emotions-css
 
 const GridFieldParent = styled.div`
 width:${props=>props.gridSize}px;

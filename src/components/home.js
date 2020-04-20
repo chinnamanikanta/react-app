@@ -9,6 +9,12 @@ export default function Home(){
         <li>
         <Link to="/home.js">Home</Link>
         </li>
+                <li>
+        <Link to="/todo-practice-app">todo-practice</Link>
+        </li>
+        <li>
+        <Link to="/todoApp">todoAppList</Link>
+        </li>
 
         <li>
         <Link to="/event-list-app">event-List-app</Link>

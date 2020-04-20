@@ -1,4 +1,5 @@
 import React from 'react';
+/*global fetch*/
 import {observer} from 'mobx-react';
 import {observable,action,reaction} from 'mobx';
 import './todos.css';
@@ -42,12 +43,26 @@ class TodoAppBottom extends React.Component {
         @observable numOfItems = 0;
         @observable todoFooterState="all";
         @observable numOfCompletedTodos= 0;
+        @observable isLoading = true;
+        @observable isNetWorkCall = true;
     
     constructor(props) {
         super(props);
 
             
     }
+    componentDidMount(){
+        fetch("https://todo-list-3.getsandbox.com/todos")
+        .then(response => response.json())
+.then(res => {
+  console.log("reponse :", res); // <-------- i get a "promise"
+ }).catch(error => {
+     console.log(error);
+});
+
+    }
+    
+    
     @action.bound
     addTodoToTodosList(event){
         

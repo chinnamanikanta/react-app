@@ -6,7 +6,8 @@ import {observer} from "mobx-react"
 import gameStore from '../../stores/GridGameStore/';
 import gameLevels from './data.js';
 
-//tailwind-css
+//tailwind-@emotions-css
+
 const GridEachCell = styled.button`
 width:${props=>((props.gridWidth-(props.numOfGrids*10))/props.numOfGrids)-2}px;
 height:${props=>((props.gridWidth-(props.numOfGrids*10))/props.numOfGrids)-3}px;
@@ -35,17 +36,19 @@ class EachCell extends React.Component {
         
        
     }
-    componentWillUnmount(){
+        componentWillUnmount(){
         clearTimeout(this.time);
         clearTimeout(this.afterTime);
         
     }
+
     
     onClickCell=(eachCell)=>{
             if(this.isClickedOnCell === false) {
                 const cellTime = setTimeout(()=>{
+                    
                       gameStore.onCellClick(eachCell);
-                },250)
+                },100)
                 this.isClickedOnCell = true;
             }
     }
@@ -56,6 +59,7 @@ class EachCell extends React.Component {
         const {level} = gameStore;
         return (
     <GridEachCell 
+    
     disabled={this.shouldShowHiddenCells} 
     eachCellHidden={eachCell.isHidden} 
     numOfGrids={gameLevels[level].gridSize} 

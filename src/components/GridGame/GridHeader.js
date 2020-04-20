@@ -4,7 +4,7 @@ import tw from 'tailwind.macro';
 import gameStore from '../../stores/GridGameStore/'
 import gameLevels from './data.js';
 
-// tailwind-css
+// tailwind-@emotions-css
 
 const GameNavBar = styled.div`${tw`flex flex-col items-center `}
 color:${props=> props.selectedTheme === "Mode-Light" ? "black" : "white"};
@@ -12,7 +12,9 @@ width:${props=>props.gridSize}px;
 `;
 const Level = styled.div`${tw`p-2 text-xl`}`;
 const TopLevel = styled.div`${tw`text-xl`}`;
-const ThemeButton = styled.button`${tw`h-10 w-32 text-xl border border-black-600 m-4`}`;
+const ThemeButton = styled.button`${tw`h-10 w-32 text-xl m-4`}
+border:${props=> props.selectedTheme === "Mode-Light" ? "1px solid black" : "1px solid white"};
+`;
 const LevelButton = styled.div`
 display:flex;
 align-items:center;
@@ -20,6 +22,7 @@ justify-content:space-between;
 width:${props=>props.gridSize}px;
 `;
 const ButtonDiv = styled.div``;
+
 //React-mobx-funtionality
 
 
@@ -29,7 +32,7 @@ class GridGameHeader extends React.Component {
 
        const { selectedTheme,onChangeSelectedTheme,currentLevelGridCells} = this.props;
        const {level} = gameStore;
-      console.log(currentLevelGridCells);
+
         return (
             <div>
             <GameNavBar selectedTheme={selectedTheme}
@@ -39,7 +42,7 @@ class GridGameHeader extends React.Component {
             <Level>Level : {gameStore.level}</Level>
             <ButtonDiv>
             <ThemeButton 
-            onClick={onChangeSelectedTheme}>{selectedTheme}</ThemeButton>
+            onClick={onChangeSelectedTheme} selectedTheme={selectedTheme}>{selectedTheme}</ThemeButton>
                         </ButtonDiv>
             </LevelButton>
             </GameNavBar>

@@ -10,9 +10,7 @@ class GameStore {
     @observable RandomGridCells = [];
     @observable selectedCellCount = 0;
     @observable isGameCompleted=false;
-    @observable gridWidth = 300;
-    
-    
+
     @action.bound 
     onCellClick(eachCell){
         if(eachCell.isHidden === true) {
@@ -26,14 +24,12 @@ class GameStore {
             
             this.getToInitialLevelAndUpdateCells();
         }
-        
-        
-
-        
     }
     @action.bound
     setGridCells(){
+       
         //to generate random gridCell for Each Level
+       
         let max = ((this.level + 3)**2)-1;
         let x = 9007199254740992;
         for(let randomCell=0; randomCell < x && this.RandomGridCells.length < gameLevels[this.level].gridSize ; randomCell++){
@@ -53,18 +49,17 @@ class GameStore {
                 this.currentLevelGridCells.push(new GameModel({id:this.id++,isHidden:false}))
             }
         }
-        this.RandomGridCells = []
+                this.RandomGridCells = []
+
     }
     @action.bound
     getToNextLevelUpdateCells(){
         this.currentLevelGridCells = [];
-        if(this.level === 3) {
+        if(this.level === 1) {
             this.isGameCompleted = true;
-            
         }
         else {
         this.level++;
-
         this.selectedCellCount = 0;
         this.setGridCells();
         }

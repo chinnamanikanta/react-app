@@ -9,7 +9,7 @@ import GridGameHeader from './GridHeader';
 import GameField from './GridGameField';
 import GameResult from './GridGameResult.js';
 
-//tailwind-css
+//tailwind-@emotions-css
 
 const GameBody = styled.div`${tw`flex justify-center items-center flex-col min-h-screen`}
 background-color:${props=>props.selectedTheme === "Mode-Dark"? "#25383C" : "white"}
@@ -28,7 +28,6 @@ class GridMemoryGame extends React.Component {
         
         return (
             <GameBody selectedTheme={selectedTheme}>
-           
             <GridGameHeader currentLevelGridCells = {currentLevelGridCells} selectedTheme={selectedTheme} onChangeSelectedTheme={onChangeSelectedTheme} level={level} topLevel={topLevel} />
            {gameStore.isGameCompleted === false ?
             <GameField currentLevelGridCells={currentLevelGridCells} numOfGrids={numOfGrids} onCellClick={onCellClick}/>
