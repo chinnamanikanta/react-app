@@ -18,7 +18,7 @@ fetch("https://todo-list-3.getsandbox.com/todos")
     
 })
 .then(res => {
-  console.log("reponse :", res); // <-------- i get a "promise"
+  console.log("reponse :", res); 
  }).catch(error => {
   console.error(error);
   return { name: "network error", description: "" };
