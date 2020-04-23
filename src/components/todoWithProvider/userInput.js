@@ -19,7 +19,7 @@ class UserInput extends React.Component {
     @action.bound
     onSubmit(event){
         event.preventDefault();
-        todoStore.addTodo(this.state.userInput);
+        this.props.addTodo(this.state.userInput);
         this.setState({
             userInput:""
             
@@ -37,8 +37,6 @@ class UserInput extends React.Component {
 
 
 export default UserInput;
-
-
 
 
 

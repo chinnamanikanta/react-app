@@ -1,63 +1,99 @@
 import React from 'react';
 import {observable,computed,action,reaction} from 'mobx';
+import { API_INITIAL, API_FAILED, API_FETCHING, API_SUCCESS  } from '@ib/api-constants';
 // import {observer} from 'mobx-react';
 // import {toJS} from "mobx";
-import Todo from './todos.js'
+import {bindPromiseWithOnSuccess} from '@ib/mobx-promise';
+import Todo from './todos.js';
  
 class TodoStores {
-    @observable id=0;
-    @observable todos = [];
-    @observable selectedFilter = "all";
+    id=0;
+    @observable getUsersApiError;
+    @observable getUsersApiStatus;
+    @observable todos
+    
+
+    todoService
+    constructor(todoService){
+        this.init()
+        this.todoService = todoService;
+    }
+    
+    @action
+    init(){
+        this.getUsersApiError = null;
+        this.getUsersApiStatus = API_INITIAL;
+        this.todos = []
+    }
+    @action.bound 
+    setUsersApiError(error){
+        this.getUsersApiError = error;
+        
+        
+    }
+    @action.bound 
+    setUsersApiResponse(todos){
+        
+        todos.map((todo)=> {
+         const todoModel = new Todo({
+            id:todo.id,
+            title:todo.title,
+            isCompleted:todos.completed})
+            this.todos.unshift(todoModel)
+            
+        }
+            )
+   
+            
+    
+    }
+    @action.bound
+    setUsersApistatus(apiStatus){
+        
+            this.getUsersApiStatus = apiStatus;
+        
+    }
+    @action.bound
+    getUsersTodos(){
+        const todoPromise = this.todoService.getTodosApi();
+        return bindPromiseWithOnSuccess(todoPromise)
+        .to(this.setUsersApistatus,this.setUsersApiResponse)
+        .catch(this.setUsersApiError)
+        
+    }
+    
+    
     
     @action.bound 
     onAddTodo(todoName){
-
-        this.todos.push(new Todo({todoId:this.id++,todoName,isCompleted:false,selectedFilter:"all"}))
-    //   console.log(this.todos);
-
-    }
-    addTodoLength=reaction(()=>
-    {
-    return this.todos.map((todo)=> todo.todoName)
-    },
-    (name)=>{
-        console.log("todo length",name);
-    }
-    
-    )
-    
-    addTodoLength=reaction(()=>
-    {
-    return this.listOfTodos.length
-    },
-    (value)=>{
-        console.log(value);
-    }
-    
-    )
-    @action.bound 
-    onRemoveTodo(item){
-        // this.todos. 
-        
+        const todoModel = new Todo({
+            id:this.id++,
+            title:todoName,
+            isCompleted:false})
+            this.todos.unshift(todoModel)
     }
     @action.bound
-    onChangeSelectedFilter(){
+    onRemoveTodo(todosObj) {
+        let id = todosObj.id;
+
+        let dupList = this.todos.slice(0);
+        let index = dupList.indexOf(todosObj);
+        dupList.splice(index, 1);
+        this.todos = dupList.filter(eachEl => eachEl.id != id)
+        console.log(this.todos.length);
         
-    }
-    @action.bound
-    onClearCompleted(){
         
-    }
-    @computed
-    get activeTodosCount(){
         
+
     }
-    @computed
-    get filteredTodos(){
-        
+    @action
+    clearStore(){
+        this.init();
     }
+
+    
     
     
 }
-const todoStore = new TodoStores();
-export default todoStore;
+
+export default TodoStores;

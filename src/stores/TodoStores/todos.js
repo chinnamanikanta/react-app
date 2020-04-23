@@ -3,15 +3,20 @@ import {observable,computed} from 'mobx';
 import {action} from 'mobx';
 
 class Todo {
-    @observable todoName;
+    @observable title;
     @observable isCompleted;
-    @observable selectedFilter;
+    @observable id;
+
     constructor(props){
-        this.todoName=props.todoName;
+        this.title = props.title;
         this.isCompleted = props.isCompleted;
-        this.selectedFilter = props.selectedFilter;
+        this.id=props.id;
+        
+        
         
     }
+
+
     @action.bound
     updateTitle(updateName){
         this.todoName=updateName

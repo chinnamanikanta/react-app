@@ -19,6 +19,9 @@ export default function Home(){
         <li>
         <Link to="/event-list-app">event-List-app</Link>
         </li>
+        <li>
+        <Link to="/mobx-todo-app">mobx-todo-app</Link>
+        </li>
         
         <li>
         <Link to="/grid-game-app">Grid Game App</Link>
