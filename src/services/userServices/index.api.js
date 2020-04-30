@@ -1,6 +1,6 @@
 import {create} from 'apisauce';
-import {networkCallWithApisauce } from '../../utils/APIUtils';
-import {apiMethods} from '../../constants/APIConstants';
+import {networkCallWithApisauce } from '../../E-Commerce/utils/APIUtils';
+import {apiMethods} from '../../E-Commerce/utils/APIConstants';
 
 class UserService {
     api

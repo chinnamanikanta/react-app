@@ -9,16 +9,19 @@ import Home from "./components/home";
 // import appState from './components/Counter/incrDecr.js';
 // import appState1 from './components/Counter/state1.js';
 import "./App.css";
-import TodosList from './components/todo-list/todoList.js';
-import TodoApp from './components/todoWithProvider/TodoApp.js';
+// import TodosList from './components/todo-list/todoList.js';
+// import TodoApp from './components/todoWithProvider/TodoApp.js';
 import EventsApp from './components/Events/EventListapp'; 
 // import A from './components/Page1/index.js';
 import GridMemoryGame from './components/GridGame/GridMemoryGameApp'; 
-import UsersPage from './components/todoPractice/usersPage.js' 
-import stores from './stores';
+// import UsersPage from './components/todoPractice/usersPage.js' 
+// import UserLogin from './components/loginPage/';
+import SignInECommercePage from './Authentication/components/SignUp/SignUp';
+import ProductsMainPage from './E-Commerce/components/ProductPage/ProductMainPage/ProductMainPage'
+// import stores from './stores';
 const App = () => {
   return (
-    <Provider {...stores}>
+    <Provider>
     <Router basename={process.env.PUBLIC_URL}>
       <Switch>
       
@@ -26,18 +29,14 @@ const App = () => {
 <EventsApp/>
 </Route>
 
-<Route path="/grid-game-app">
-<GridMemoryGame/>
+
+<Route path="/grid-game-app" component={GridMemoryGame}>
 </Route>
-<Route path="/todoApp">
-<TodosList/>
+<Route path="/user-login" component={SignInECommercePage}>
 </Route>
-<Route path="/mobx-todo-app" component={TodoApp}>
+<Route path="/product-page" component={ProductsMainPage}>
 </Route>
 
-<Route path="/todo-practice-app" component={UsersPage}>
-
-</Route>
 
 
 

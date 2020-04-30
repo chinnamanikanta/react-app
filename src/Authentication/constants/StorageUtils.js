@@ -1,6 +1,7 @@
 import Cookie from 'js-cookie';
 
 export const ACCESS_TOKEN = 'dG6EABne5a';
+export const ACCESS_SIGNOUT_TOKEN = "d2kdsji3";
 
 export function getCookie(key) {
   return Cookie.get(key)

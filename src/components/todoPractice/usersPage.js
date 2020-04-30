@@ -8,8 +8,6 @@ import LoadingWrapperWithFailure from '../common/LoadingWrapperWithFailure';
 import NoDataView from '../common/NoDataView/'
 
 
-@inject('userStore')
-@observer
 class UsersPage extends React.Component {
     
     componentDidMount(){

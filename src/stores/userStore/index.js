@@ -3,7 +3,7 @@ import {observable,action} from 'mobx';
 import { API_INITIAL, API_FAILED, API_FETCHING, API_SUCCESS  } from '@ib/api-constants'
 import EachTodoModel from './EachModel.js';
 import { create } from 'apisauce';
-import {networkCallWithApisauce } from '../../utils/APIUtils';
+import {networkCallWithApisauce } from '../../E-Commerce/utils/APIUtils';
 import {apiMethods} from '../../constants/APIConstants';
 import {bindPromiseWithOnSuccess} from '@ib/mobx-promise'
 import UserFixtureService from '../../services/userServices/index.fixture.js';

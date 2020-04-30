@@ -1,8 +1,23 @@
 import React from 'react';
+import {Redirect} from 'react-router-dom';
 import {Link}  from 'react-router-dom';
 
-export default function Home(){
-    return (
+class Home extends React.Component {
+    // gotoGridScreenIfLoggedIn = () => {
+    // return (
+    //     <Redirect 
+    //     to = {{
+    //     pathname: '/grid-game-app',
+    //     }}
+    //     />
+    //     ) }
+    //     render() {
+    //         if(true) {
+    //             return this.gotoGridScreenIfLoggedIn();  
+    //             }
+       render(){     
+        return (
+        
         <div>
         <nav>
         <ul>
@@ -12,9 +27,16 @@ export default function Home(){
                 <li>
         <Link to="/todo-practice-app">todo-practice</Link>
         </li>
+
+        
         <li>
         <Link to="/todoApp">todoAppList</Link>
         </li>
+        
+        <li>
+        <Link to="/user-login">E-Commerce-Web-Site</Link>
+        </li>
+        
 
         <li>
         <Link to="/event-list-app">event-List-app</Link>
@@ -24,13 +46,17 @@ export default function Home(){
         </li>
         
         <li>
-        <Link to="/grid-game-app">Grid Game App</Link>
+        <Link to="/login-page">Grid Game App</Link>
         </li>
 
         </ul>
         </nav>
         </div>
         
-        );
+        )
+        
+        ;
+        }
     
 }
+export default Home;
