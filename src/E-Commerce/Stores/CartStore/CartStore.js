@@ -2,11 +2,13 @@ import {observable,action,computed} from "mobx";
 import CartModel from '../models/CartModel/CartModel';
 import productStore from '../ProductStore/ProductStore';
 
+
 class CartStore {
     id=0;
     @observable cartProductList = [];
     @observable totalAmount = 0;
     @observable price;
+    
     @action.bound
     onClickAddToCart(selectedProduct){
         let cost = selectedProduct.price;
@@ -51,5 +53,5 @@ class CartStore {
     }
 
 }
-const cartStore = new CartStore();
-export default cartStore;
+// const cartStore = new CartStore();
+export default CartStore;

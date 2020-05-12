@@ -27,6 +27,9 @@ class Home extends React.Component {
                 <li>
         <Link to="/todo-practice-app">todo-practice</Link>
         </li>
+        <li>
+        <Link to="/practice">mobx-practice</Link>
+        </li>
 
         
         <li>

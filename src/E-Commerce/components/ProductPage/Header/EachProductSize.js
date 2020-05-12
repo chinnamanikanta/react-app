@@ -32,7 +32,7 @@ class EachSize extends React.Component {
         const {eachSize} =this.props;
         return(
             <SelectFilterGroup>
-            <EachButton value = "XS" onClick={this.OnSelectedSize}>XS</EachButton>
+            <EachButton value = "XS"  onClick={this.OnSelectedSize}>XS</EachButton>
             
             <EachButton value = "S"   onClick={this.OnSelectedSize}>S</EachButton>
            <EachButton value = "L"    onClick={this.OnSelectedSize}>L</EachButton>

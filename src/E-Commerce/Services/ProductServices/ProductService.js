@@ -17,7 +17,6 @@ getProductsAPI(){
             {},
             apiMethods.get
             )
-       
 }
 
 }

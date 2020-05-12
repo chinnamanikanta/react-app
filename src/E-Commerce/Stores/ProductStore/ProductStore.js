@@ -3,18 +3,19 @@ import { API_INITIAL, API_FAILED, API_FETCHING, API_SUCCESS  } from '@ib/api-con
 import {bindPromiseWithOnSuccess} from '@ib/mobx-promise'
 import ProductService from '../../Services/ProductServices/ProductService'
 import ProductModel from '../models/ProductModel/ProductModel'
+
 class ProductStore {
     @observable productList;
     @observable getProductListAPIStatus;
     @observable getProductListAPIError;
     @observable filteredList;
     @observable selectedFilter;
-    @observable isSortBy
+    @observable isSortBy;
     productService;
+    
     constructor(productService){
         this.init();
         this.productService = productService;
-        
     }
     @action 
     init(){
@@ -37,7 +38,7 @@ class ProductStore {
         if(this.isSortBy === "ASSENDING"){
     let dupList = filteredProductList.slice(0);
     let newList = dupList.sort((a, b) => a.price - b.price);
-    console.log("assending",newList);
+   
     filteredProductList = newList;
     
     return filteredProductList;
@@ -45,7 +46,6 @@ class ProductStore {
         else if(this.isSortBy === "DECENDING"){
         let dupList = filteredProductList.slice(0);
         let newList = dupList.sort((a, b) => a.price - b.price).reverse();
-       console.log("deceding",newList);
         filteredProductList = newList;
         
         return filteredProductList;
@@ -81,8 +81,8 @@ class ProductStore {
             const productModel = new ProductModel(
                 eachProduct
             )
-            this.productList.push(productModel)
-        })
+            this.productList.push(productModel);
+        });
     }
     
     @computed
@@ -93,10 +93,7 @@ class ProductStore {
     
     @action.bound
     setProductsApiError(error){
-
         this.getProductListAPIError = error;
-                
-        
     }
     @action.bound 
     setProductsApistatus(apiStatus){
@@ -105,23 +102,18 @@ class ProductStore {
     }
     @action.bound
     getProductsApi(){
-        
         const productPromise = this.productService.getProductsAPI();
         return bindPromiseWithOnSuccess(productPromise)
         .to(this.setProductsApistatus,this.setProductsApiResponse)
         .catch(this.setProductsApiError);
-        
-        
-        
     }
     @computed
     get products(){
-    
-       return this.onSelectedSortBy;
         
+       return this.onSelectedSortBy;
+       
     }
-   
-    
 }
-const productStore = new ProductStore(new ProductService());
-export default productStore;
+
+
+export default ProductStore;
