@@ -1,8 +1,17 @@
 import React from "react";
 import {observer} from 'mobx-react';
 
+const DisplayMessage = (props) => {
+  return <div>{props.children() }</div>
+}
+
 @observer
 class SignInForm extends React.Component {
+  usernameRef = React.createRef();
+  passwordRef = React.createRef();
+  componentDidMount(){
+    this.usernameRef.current.focus();
+  }
   render() {
     const {
       username,
@@ -20,6 +29,7 @@ class SignInForm extends React.Component {
         <form className="flex flex-col p-10 bg-white">
           <h2 className="font-bold mb-4">Sign in</h2>
             <input
+            ref = {this.usernameRef}
               type="text"
               placeholder="Username"
               value={username}
@@ -49,6 +59,7 @@ class SignInForm extends React.Component {
             </span>
           ) : null}
         </form>
+        <DisplayMessage>{()=> <div>mani</div>}</DisplayMessage>
       </div>
     );
   }

@@ -425,80 +425,157 @@ import React from 'react';
 // }
 
 
-@observer
-class Child1 extends React.Component {
-  render(){
-        console.log("render Child1");
-  return(
-    <div>
-    <p>{this.props.count2}</p>
-    </div>
+// @observer
+// class Child1 extends React.Component {
+//   render(){
+//         console.log("render Child1");
+//   return(
+//     <div>
+//     <p>{this.props.count2}</p>
+//     </div>
     
-    )
+//     )
   
-  }
-}
-@observer
-class Child2 extends React.Component {
-  render(){
-    console.log("render Child2");
-  return(
-    <div>
-        <p>{this.props.count1}</p>
-    </div>
+//   }
+// }
+// @observer
+// class Child2 extends React.Component {
+//   render(){
+//     console.log("render Child2");
+//   return(
+//     <div>
+//         <p>{this.props.count1}</p>
+//     </div>
     
-    )
+//     )
   
-  }
+//   }
   
-}
-@observer
-class Child3 extends React.Component {
+// }
+// @observer
+// class Child3 extends React.Component {
   
   
-  render(){
-    console.log("render Child3");
-  return(
-    <div>
-    <p>{this.props.count}</p>
-    </div>
+//   render(){
+//     console.log("render Child3");
+//   return(
+//     <div>
+//     <p>{this.props.count}</p>
+//     </div>
     
-    )
+//     )
   
-  }
-}
-@observer
-class Practice extends React.Component {
-  @observable count = 0;
-  @observable count1 = 0;
-  @observable count2 = 0;
-  @observable count3 = 0;
-  @action.bound
-  update(){
-    this.count = this.count + 1;
-    this.count1 = this.count1 + 2;
-    this.count2 = this.count2 + 3;
-    this.count3 = this.count3 + 4;
-  }
+//   }
+// }
+// @observer
+// class Practice extends React.Component {
+//   @observable count = 0;
+//   @observable count1 = 0;
+//   @observable count2 = 0;
+//   @observable count3 = 0;
+//   @action.bound
+//   update(){
+//     this.count = this.count + 1;
+//     this.count1 = this.count1 + 2;
+//     this.count2 = this.count2 + 3;
+//     this.count3 = this.count3 + 4;
+//   }
   
   
-  render(){
-    console.log("render parent");
-    return (
-      <div>
-      <div>{this.count}</div>
-      <Child1 count = {this.count1}/>
-      <Child2 count1 = {this.count2}/>
-      <Child3 count2 = {this.count3}/>
-      <button onClick={this.update}>Click me</button>
+//   render(){
+//     console.log("render parent");
+//     return (
+//       <div>
+//       <div>{this.count}</div>
+//       <Child1 count = {this.count1}/>
+//       <Child2 count1 = {this.count2}/>
+//       <Child3 count2 = {this.count3}/>
+//       <button onClick={this.update}>Click me</button>
   
-      </div>
+//       </div>
       
-      )
+//       )
+//   }
+// }
+// @observer
+// class Practice extends React.Component {
+//   @observable firstName = "chinna";
+//   @observable secondName = "hari";
+//   @observable lastName = "mani";
+//   @computed get fullName(){
+//     console.log("dshgf");
+//     return this.lastName + " " + this.firstName + " " + this.secondName;
+//   }
+  
+//   hari = () => {
+//     this.firstName = "bala";
+//     this.secondName = "krishna";
+//     this.lastName = "jdhj";
+//     this.secondName = "krishna";
+//     this.lastName = "jdhj";
+//     this.secondName = "krishna";
+//     this.lastName = "jdhj";
+//     this.secondName = "krishna";
+//     this.lastName = "jdhj";
+//   }
+//   run=autorun(()=>{
+//     console.log("auto run",this.fullName);
+//   })
+  
+//   render(){
+//     console.log("render");
+//     return (
+//       <div>
+//       <div>{this.fullName}</div>
+//       <button onClick = {this.hari}>click me</button>
+//         </div>
+      
+//       )
+//   }
+// }
+
+export const themes = {
+  light: {
+    foreground: '#000000',
+    background: '#eeeeee',
+  },
+  dark: {
+    foreground: '#ffffff',
+    background: '#222222',
+  },
+  
+};
+
+export const ThemeContext = React.createContext(
+  themes.dark
+  ); 
+class Practice extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      theme : themes.light
+    };
+    
+    this.toggleTheme = () => {
+      this.setState(state => ({
+        theme:
+        state.theme === themes.dark 
+        ? themes.light :
+          themes.dark
+        
+      }));
+    }
   }
+  
+  render(){
+    
+    
+    
+  }
+  
+  
+  
 }
-
-
 
 
 
