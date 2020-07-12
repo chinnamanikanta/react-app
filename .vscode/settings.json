@@ -1,5 +1,9 @@
 {
   "npm-intellisense.importQuotes": "\"",
   "typescript.preferences.quoteStyle": "double",
-  "javascript.preferences.quoteStyle": "double"
+  "javascript.preferences.quoteStyle": "double",
+  "cSpell.words": [
+    "kanban",
+    "lourenci"
+  ]
 }
